@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            var cnt = 2;
+            //Undelegate function for single clone function on first div
+            $('#btn').click(function () {
+                //To Clone the div element completely
+                //div first child because after cloning we will be having multiple div
+                //This will only allow first button to make the clone, to apply clone functionality on all the div,
+                //we need to add the delegate function
+                var element = $('div:first-child').clone();
+                $(element + " input").attr('id', 'name' + cnt);
+                cnt++;
+                $('body').append(element);
+            })
+
+            //DELEGATE To apply clone effect on all the buttons
+            //applying click event on the Body level, it will be identified by the id, we are giving,
+            //it can be a class also. So the every click event occuring in the body if matches the id , it will
+            //invoke this method.
+            /**/
+            $('body').delegate('#btn' /*Selector(Id,Class,Tag)*/, "click" /*EVENT*/, function () {
+
+                var element = $('div:first-child').clone();
+                $(element + " input").attr('id', 'name' + cnt);
+                cnt++;
+                $('body').append(element);
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <!-- We will try to clone this whole div on clicking of the button -->
+    <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+        <button type="button" class="" id="btn">Clone</button>
+    </div>
+</body>
+
+</html>

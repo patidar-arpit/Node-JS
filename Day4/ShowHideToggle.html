@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Show Hide and Toggle</title>
+    <style>
+        img {
+            height: 300px;
+            border: 4px solid black;
+            border-radius: 30px;
+        }
+    </style>
+    <script src="jquery.js"></script>
+    <script>
+
+        //THIS IS JUST FOR FUN, will occur continuosly
+
+        // function f() {
+        //     setInterval(() => {
+        //         $('#div1').slideUp(200, function () {
+        //             $('#div0').html("Hide Complete");
+        //         })
+        //         $('#div1').slideDown(200, function () {
+        //             $('#div0').html("Hide Complete");
+        //         })
+        //     }, 200);
+        // }
+
+        $(document).ready(function () {
+            //When click show button clicked
+            $('#show').click(function () {
+                //Showing the Image --> time, callback function
+                $('#div1').show(2000, function () {
+                    $('#div0').html("Show Complete");
+                })
+            })
+
+            $('#hide').click(function () {
+                //Hiding the image
+                $('#div1').hide(2000, function () {
+                    $('#div0').html("Hide Complete");
+                })
+            })
+            $('#toggle').click(function () {
+                //Toggle the show and hide
+                $('#div1').toggle(2000, function () {
+                    $('#div0').html("Hide Complete");
+                })
+            })
+
+            $('#slideup').click(function () {
+                // f();
+
+                //To slide Up the image
+                $('#div1').slideUp(200, function () {
+                    $('#div0').html("Hide Complete");
+                })
+                //To slide Down the image
+                $('#div1').slideDown(200, function () {
+                    $('#div0').html("Hide Complete");
+                })
+                //To toggle the slide image
+                $('#div1').slideToggle(2000, function () {
+                    $('#div0').html("Hide Complete");
+                })
+            })
+
+            $('#fades').click(function () {
+                //Fades out the image
+                $('#div1').fadeOut(2000);
+                //Fades in the image
+                $('#div1').fadeIn(2000);
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+    <div id="div0"></div>
+
+    <button type="button" name="btn" id="show">Show</button>
+    <button type="button" name="btn" id="hide">Hide</button>
+    <button type="button" name="btn" id="toggle">Toggle</button>
+    <button type="button" name="btn" id="slideup">Slide Up</button>
+    <button type="button" name="btn" id="fades">Fade</button>
+    <div id="div1">
+        <img src="us.jpg.jpg" alt="" srcset="">
+    </div>
+    <div id="div2">
+        This is para
+    </div>
+</body>
+
+</html>

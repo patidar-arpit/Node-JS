@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <script>
+         function findLocation(){
+            if(navigator.geolocation){
+
+                navigator.geolocation.getCurrentPosition // it is ansychronous func
+                (showposition,showerror); // this functions will be called after the completion of getCurrentPosition
+              // showposition and showerror are the callback position 
+              // and one of them run after the completion of the getCurrentPosition
+              // showpostion will be called if location is get find
+              // and showerror will be called if we find the error in finding the position 
+            }
+
+
+
+
+            else{
+                document.getElementById("myDiv")
+                innerHTML = "geolocation is not supported"
+            }
+         }
+
+         function showposition(position){
+             document.getElementById("myDiv").innerHTML = "Latitude"+position.coords.latitude
+             + "Longitude:"+position.coords.longitude;
+
+         }
+
+         function showerror(error){
+            console.log("error occurres"+error)
+         }
+
+
+
+      </script>
+</head>
+<body>
+
+    <button type = "button" name="btn" id = "btn" onclick="findLocation()">Get Location</button>
+
+    <div id = "myDiv">
+
+    </div>
+    
+</body>
+</html>

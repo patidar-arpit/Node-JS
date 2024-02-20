@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Press to Search</title>
+
+    <!-- Include the JQuery script file -->
+    <script>
+
+        function displayList(searchArr) {
+            str = "<ul>";
+            for (var i of searchArr) {
+                str += `<li>${i}</li>`
+            }
+            str += "</ul>";
+            $('#mydiv').html(str);
+        }
+
+        $(document).ready(function () {
+
+            names = ["Arpit pArtydaar", "Jayesh Murda", "Mandeep Bhoi", "Jatin", "Aayush"];
+            searchArr = [...names]; // Spread Operator
+            displayList(searchArr);
+
+            //KEY UP is better --
+            $('#search').keyup(function (event /*Event Object has all the information of the event*/) {
+                console.log(e); //Shows all the info of the event
+                console.log(e.key + "," + e.which); //key --> alphabet , which --> ASCII of the alphabet
+                console.log(e.target.value) //gives the previous values of the event occurence
+
+                if (e.which === 13) {   //13 is ASCII for the ENTER button -> so that user press enter, this will be executed
+                    //SEARCH ALGO
+                    var searchText = $('search').val();
+                    if (searchText === "") {    //If the input is empty, whole array will be stored in the 
+                        searchArr = [...names];
+                    }
+                    else {
+                        //Filter method to search the search text in the names array and storing in the searchArr
+                        searchArr = names.filter(nm => nm.includes(searchText));
+                    }
+                    //Sending the searchArr to the display method
+                    displayList(searchArr);
+                }
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+    <!-- On input from user, there are 4 events occuring in the JS
+        1. Key Press
+        2. Key Up
+        3. Key Down
+        4. OnChange
+        We can handle the searching by either of them
+     -->
+    Search Text: <input type="text" name="search" id="search">
+    <div id="mydiv">
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Append and Prepend</title>
+    <script>
+        $(document).ready(function () {
+            $('#append').click(function () {
+                $('div').append("<p class='app'>This is appended paragraph </p>");
+            });
+            $('#prepend').click(function () {
+                $('div').prepend("<p class='app'>This is prepended paragraph </p>");
+            });
+            $('#remove-append').click(function () {
+                //To remove the p tag from the .app class
+                $('p').remove(".app");
+            });
+            $('#remove-prepend').click(function () {
+                $('p').remove(".app");
+            });
+
+        })
+    </script>
+</head>
+
+<body>
+    <button type="button" name="btn" id="append">Append Para</button>
+    <button type="button" name="btn" id="prepend">Prepend Para</button>
+    <button type="button" name="btn" id="remove-prepend">Remove Prepend Para</button>
+    <button type="button" name="btn" id="remove-append">Remove Append Para</button>
+    <div>
+        <!-- Prepend Data will be added here -->
+        <h1>This is H1</h1>
+        <!-- Append Data will be added here -->
+
+    </div>
+</body>
+
+</html>

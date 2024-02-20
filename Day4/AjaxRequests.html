@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Requests</title>
+   
+    <script src="jquery.js"></script>
+
+    <script>
+        function displayTable(result) {
+            var str = "<table border = '2' cellspacing = '20' ><tr><th>Id</th><th>Name</th><th>Author</th></tr>";
+            for (var i of result) {
+                str += `<tr><td>${i['id']}</td><td>${i['name']}</td><td>${i['author']}</td></tr>`;
+            }
+            str += "</table>";
+            $('#data').html(str);
+        }
+
+        $(document).ready(function () {
+            //AJAX --> Asynchronous Javascript and XML
+            //Plugin Function
+            //Used to reload a part of page country - state example
+            //WORKING
+            //Part of AJAX ENGINE
+            //Whenever we create a ajax request, it first goes to the AJAX ENGINE and then it converts it to the
+            //HTTP REQUEST and then it SENDS it to the server in form of JSON and fetches the data in the form of JSON
+            //Then the JSON data is transferred to the ajax request in the form of javascript code
+            $.ajax({
+                async: true,
+                url: "http://localhost:5025/api/Books",
+                type: "GET",                                //Type of REQUEST
+                success: function (result) {                        //On success of request
+                    displayTable(result);
+                },
+                error: function (error) {                          //On error of request
+                    console.log(error);
+                }
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+    <button type="button" name="btn" id="get">Get Data</button>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="data"></div>
+</body>
+
+</html>

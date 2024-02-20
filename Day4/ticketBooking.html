@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Booking</title>
+
+    <script src="jquery.js"></script>
+    <script>
+        function displayTickets(tickets) {
+            //Putting the checkbox input tag in the str
+            var str = "<input type = 'checkbox' name = 'ticket' id='test' value='test'> ";
+            var count = 1;
+            //Iterating the loop for the tickets array
+            for (var i of tickets) {
+                //Appending the str to the mydiv
+                $('#mydiv').append(str);
+                //Giving the id and value to the checkbox as the name of the array elements
+                $('#test').attr({ 'id': i, 'value': i });
+                //Giving the Label to show the name for the seats
+                $('#mydiv').append(`<label for = ${i} >${i}</label>`)
+
+                //Will add a br tag after every 4 iterations
+                if (count % 4 === 0) {
+                    $('#mydiv').append("<br/>");
+                }
+                count++;
+            }
+        }
+
+        $(document).ready(function () {
+            var tickets = ["seat1", "seat2", "seat3", "seat4", "seat5", "seat6", "seat7", "seat8"];
+            var checkedTickets = [];
+            displayTickets(tickets);
+
+            if ($(':input[name = "ticket"]').change(function () {
+                if ($(this).is(':checked')) {
+                    checkedTickets.push($(this).val());
+                }
+            }))
+
+                $('#show').click(function () {
+                    if (checkedTickets.length !== 0) {
+                        $('#mydiv1').html("tickets: " + checkedTickets);
+                    }
+                })
+
+        })
+    </script>
+</head>
+
+<body>
+    <div id="mydiv">
+
+    </div>
+    <div id="mydiv1">
+
+    </div>
+    <button type="button" name="show" id="show">Show</button>
+</body>
+
+</html>

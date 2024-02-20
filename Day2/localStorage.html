@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       function getCount(){
+         // to check whether localstorage api is supported by browser or not 
+           if(typeof(Storage)!== undefined){
+                 // means it is storage
+                 if(localStorage.count !==undefined){
+                      // if it is thier means it have the count property
+                      localStorage.count = parseInt(localStorage.count)+1
+
+                     // localStorage.getItem("count") // retrieving the value of the count
+                 }
+                 else{
+                     //localStorage.setItem("count",1)
+                    localStorage.count =1;
+                 }
+                 document.getElementById("myDiv").innerHTML="You clicked "+localStorage.count+" times"
+           }
+       }
+
+       //localstorage data is present for life time
+       //diff browser have diff local storage
+       //Storage is the class 
+       //local storage store the data in the form of the string
+
+    </script>
+</head>
+<body>
+    <button type="button" name="btn" id = "btn" onclick="getCount()">Click Me</button>
+    <div id = "myDiv">
+
+    </div>
+</body>
+</html>

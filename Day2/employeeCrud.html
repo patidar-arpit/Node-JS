@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+     emparr = [{id :1,name:'Rahul',mob:200022},{id :2,name:'Jayesh',mob:90094}]
+    
+     const displayTable = ()=>{
+           var str = "<table><tr> <tr>";
+
+            for( var e of emparr){
+                str+= `<tr> <td> ${}<td></tr>`
+            }
+          str += "</table>" 
+
+
+     }
+
+     const updateEmployee = ()=>{
+
+        var id = ParseInt(document.getElementById("id").value);
+        var name = document.getElementById("name").value;
+        var salary = ParseInt(document.getElementById("sal").value);
+
+        var pos = emparr
+     }
+    </script>
+</head>
+<body  onload="displayTable()">
+
+    <form action="">
+        
+        Employee Id = <input type="text", name = "id",id= "id"><br>
+        Employee Name  = <input type="text", name = "name",id= "name"><br>
+        Employee Salary = <input type="text" , name="sal" ,id="sal"><br>
+
+
+        <button type="button" name="btn" id="add">Add new Employee</button>
+        <button type="button" name="btn" id="add">Add new Employee</button>
+        <button type="button" name="btn" id="add" onclick="updateEmployee()">Update Emp</button>
+
+
+
+    </form>
+    <br><br>
+    <hr>
+    <div>
+
+
+
+    </div>
+    
+    
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .myclass {
+            background-color: blue;
+            color: white;
+            display: block;
+        }
+
+        .myc {
+            display: none;
+        }
+    </style>
+
+    <!-- Include the jquery file -->
+
+    <script>
+        //DOM Manipulation
+        //Changing the class dynamically.
+        $(document).ready(function () {
+            //click acts like onClick funtion of button tag
+            $('#show').click(function () {
+                //Adds the class
+                $('h1').addClass('myclass');
+                //Removes the class
+                $('h1').removeClass('myc');
+            });
+
+            $('#hide').click(function () {
+                $('h1').removeClass('myclass')
+                    .addClass('myc');       //Method chaining
+            });
+
+            //Toggle will choose the suitable class according to the current class
+            $('#toggle').click(function () {
+                $('h1').toggleClass('myclass')
+                    .toggleClass('myc');
+            });
+        })
+    </script>
+
+</head>
+
+<body>
+    
+    <button type="button" name="btn" id="show">Show</button>
+    <button type="button" name="btn" id="hide">Hide</button>
+    <button type="button" name="btn" id="toggle">Toggle</button>
+
+    <!-- Changing the class of h1 dynamically. -->
+    <h1 class="myclass">This is header</h1>
+</body>
+
+</html>

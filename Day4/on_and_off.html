@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On and Off</title>
+
+    <!-- Include the script file of JQuery -->
+
+    <script>
+        $(document).ready(function () {
+            $('#assign').click(function () {
+                //ON will assign the event whenever the focus is on
+                //after clicking the assign button
+                $(':input[type="text"]').on("focus", function () {
+                    $(this).css("background-color", "red");
+                })
+                $(':input[type="text"]').on("blur", function () {
+                    $(this).css("background-color", "cyan");
+                })
+            })
+            //This will only be enabled after clicking the remove button
+            //OFF will remove the event.
+            $('#remove').click(function () {
+                $(':input[type="text"]').off("focus")
+                $(':input[type="text"]').off("blur")
+            })
+
+            //One will occur the given event only once, and wont do it again for the session
+            $('#one').one("click", function () {
+                $('body').prepend("<p class='myc'>This is the para as PREPEND </p>")
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <button type="button" name="btn" id="one">Assign One Prepend</button>
+    <button type="button" name="btn" id="assign">Assign</button>
+    <button type="button" name="btn" id="remove">Remove</button>
+    Name: <input type="text" name="name" id="name">
+    Address: <input type="text" name="addr" id="addr">
+</body>
+
+</html>
