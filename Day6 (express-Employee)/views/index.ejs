@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header id="header">Employee Management</header>
+    <form action="/addEmployee" method="get">
+        <button type="submit" name="btn" id="add" value="add"> Add Employee</button>
+    </form>
+
+    <table border="2">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%for(var i=0; i <employees.length; i++){%>
+                <tr>
+
+                    <td>
+                        <%=employees[i].id%>
+                    </td>
+                    <td>
+                        <%=employees[i].name%>
+                    </td>
+                    <td>
+                        <%=employees[i].sal%>
+                    </td>
+                    <td><a href="/delete/<%=employees[i].id%>">delete</a>
+                        <a href="/edit/<%=employees[i].id%>">edit</a>
+                    </td>
+                </tr>
+                <%} %>
+        </tbody>
+    </table>
+</body>
+
+</html>
