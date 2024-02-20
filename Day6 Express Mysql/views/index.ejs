@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+</head>
+
+<body>
+    <!-- If we import any css or js files, everything will be searched in public/css as we have
+written it in the app.js -->
+    <header>Product Management System</header>
+    <form action="/displayaddform">
+        <button type="submit" name="btn" id="btn" value="add">Add Product</button>
+    </form>
+
+    <table border="1" cellspacing=2 cellpadding=10>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <% %> is used to write the ejs code inside it -->
+            <% for(var i=0 ; i<proddata.length ; i++){ %>
+                <tr>
+                    <td>
+                        <%= proddata[i].prod_id %>
+                    </td>
+                    <td>
+                        <%= proddata[i].prod_name %>
+                    </td>
+                    <td>
+                        <%= proddata[i].prod_price %>
+                    </td>
+                    <td colspan="3" align="center">
+                        <a href="#">Delete</a>
+                        <a href="#">Edit</a>
+                    </td>
+                </tr>
+                <%}%>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
